@@ -1,1 +1,1 @@
-web: gunicorn wardy.wsgi
+web: gunicorn hood.wsgi
