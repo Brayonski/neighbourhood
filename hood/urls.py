@@ -20,7 +20,7 @@ from django.contrib.auth import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^' ,include('neighbourhood.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls'),{"next_page":'/'}),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^login/$', views.login, name='login'),
     url(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
     url(r'^logout/$', views.logout, {"next_page": '/'}),
