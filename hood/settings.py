@@ -124,7 +124,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'awwwards',
+#         'NAME': 'neighbourhood',
 #         'USER': 'root',
 #         'PASSWORD': 'mutaikips',
 #     }
