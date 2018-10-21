@@ -4,7 +4,7 @@ Neighbourhood
 - - - -
 Author: [Brian Mutai](https://github.com/Brayonski/neighbourhood)
 ## Description
-[Awwwards](https://awwwardy.herokuapp.com/) This is a web app that users can post projects,view,rate and search fr detailed description of the project. 
+[Awwwards](https://mahood.herokuapp.com/) This is a web app that users can post projects,view,rate and search fr detailed description of the project. 
 
 ------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ python3 manage.py test
 
 The web app can be accessed from the following link
 
-https://awwwardy.herokuapp.com/
+https://mahood.herokuapp.com/
 
 ## Quickstart
 
