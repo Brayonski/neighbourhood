@@ -183,8 +183,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'auth_login'
+LOGIN_REDIRECT_URL = 'auth_login'
+SIGNUP_REDIRECT_URL = 'auth_signup'
 
 #  Add configuration for static files storage using whitenoise
 
