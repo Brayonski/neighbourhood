@@ -28,7 +28,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'p&m+37lf==y8e8v91&azd%z55sdh6c&7##s0g0w-ykd1f72ioa'
-
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='626695510581-66ird55v9cke4jnj6bhc6uacrrqpnth2.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='D9ws4LUyOm2NHrTSSjqYRDMj'
+SOCIAL_AUTH_GITHUB_KEY ='296b7b4e41801ee38914'
+SOCIAL_AUTH_GITHUB_SECRET ='f0073f3aaef44dd19db471a59314bc8217111bf9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -67,7 +70,7 @@ ROOT_URLCONF = 'hood.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

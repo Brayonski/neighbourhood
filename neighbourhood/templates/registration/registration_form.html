@@ -23,7 +23,10 @@
                         </div>
 
                         <input type="hidden" name="next" value="{{next}}">
-
+                        <p><strong>-- OR --</strong></p>
+                        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+                        <p><strong>-- OR --</strong></p>
+                        <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
                         <div class="section">
                             <p>Have an account?<a href="/accounts/login/"> Log in</a></p>
                         </div>
