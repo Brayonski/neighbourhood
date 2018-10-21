@@ -19,6 +19,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index, name='index'),
     url(r'^' ,include('neighbourhood.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls'),{"next_page":'/'}),
     url(r'^login/$', views.login, name='login'),
