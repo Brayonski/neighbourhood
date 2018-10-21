@@ -1,0 +1,315 @@
+{% load static %}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+</head>
+
+<body>
+    <header class="header sticky-top" style="margin-bottom:2vh; ">
+        <h1 class="logo"><a href="{%url 'home'%}"">Neighbourhood</a></h1>
+        <nav class=" bg-light">
+            <form class="form-inline" role="search" action="{% url 'search_results' %}">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search for Businesses" name="business">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </form>
+        </nav>
+        <ul class=" main-nav">
+                <li><a href="#">Neighbourhood: {{ request.user.profile.neighbourhood  }}</a></li>
+                <li><a href="{% url 'profile' %}">{{ user.username }}</a></li>
+                <li><a href="{% url 'create-business' %}">Create Business</a></li>
+                <nav id="colorNav">
+                    <ul>
+                        <li class="red">
+                            <a href="#" class="">More</a>
+                            <ul>
+                                <li><a href="{% url 'profile' %}">Profile</a></li>
+                                <li><a href="{%url 'add-community'%}">Add community</a></li>
+                                <li><a href=" {%url 'new-post'%}">Post Upcoming Business</a></li>
+                                <li><a href="/accounts/login/">Log out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                </ul>
+    </header>
+</body>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Montserrat", sans-serif;
+        line-height: -1.6;
+        margin: 0;
+        min-height: 100vh;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    h2,
+    h3,
+    a {
+        color: #34495e;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .logo {
+        margin: 0;
+        font-size: 1.45em;
+    }
+
+    .main-nav {
+        margin-top: 5px;
+    }
+
+    .logo a,
+    .main-nav a {
+        padding: 10px 15px;
+        text-align: center;
+        display: block;
+    }
+
+    .main-nav a {
+        color: #34495e;
+        font-size: 0.99em;
+    }
+
+    .main-nav a:hover {
+        color: #718daa;
+    }
+
+    .header {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        border: 1px solid #a2a2a2;
+        background-color: #f4f4f4;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    /* ================================= 
+    Media Queries
+  ==================================== */
+
+    @media (min-width: 769px) {
+
+        .header,
+        .main-nav {
+            display: flex;
+        }
+
+        .header {
+            flex-direction: column;
+            align-items: center;
+
+            .header {
+                width: 80%;
+                margin: 0 auto;
+                max-width: 1150px;
+            }
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .header {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+
+
+    @import url(https: //netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+    ​​
+    /*-------------------------
+	Simple reset
+--------------------------*/
+
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /*-------------------------
+	General Styles
+--------------------------*/
+
+
+
+
+    a, a:visited {
+        text-decoration: none;
+        outline: none;
+        color: #54a6de;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    section, footer, nav {
+        display: block;
+    }
+
+
+    /*----------------------------
+	The Navigation Menu
+-----------------------------*/
+
+
+    #colorNav > ul {
+        /* Increase when adding more menu items */
+        margin: 0 auto;
+        margin-right: 20px
+    }
+
+    #colorNav > ul > li {
+        /* will style only the top level li */
+        list-style: none;
+        display: inline-block;
+        line-height: 1;
+        margin-right: 10px;
+    }
+
+    #colorNav > ul > li > a {
+        color: inherit;
+        text-decoration: none !important;
+    }
+
+    #colorNav li ul {
+        position: absolute;
+        list-style: none;
+        text-align: center;
+        width: 180px;
+
+        margin-left: -100px;
+        top: 40px;
+        font: bold 12px 'Open Sans Condensed', sans-serif;
+
+        /* This is important for the show/hide CSS animation */
+        max-height: 0px;
+        overflow: hidden;
+
+        -webkit-transition: max-height 0.4s linear;
+        -moz-transition: max-height 0.4s linear;
+        transition: max-height 0.4s linear;
+        z-index: 1;
+    }
+
+    #colorNav li ul li {
+        background-color: #8A0E3E;
+    }
+
+    #colorNav li ul li a {
+        padding: 12px;
+        color: #fff !important;
+        text-decoration: none !important;
+        display: block;
+    }
+
+    #colorNav li ul li:nth-child(odd) {
+        /* zebra stripes */
+        background-color: #8A0E3E;
+    }
+
+    #colorNav li ul li:hover {
+        background-color: #444;
+    }
+
+    #colorNav li ul li:first-child {
+        border-radius: 3px 3px 0 0;
+        margin-top: 25px;
+        position: relative;
+    }
+
+    #colorNav li ul li:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    /* This will trigger the CSS */
+    /* transition animation on hover */
+
+    #colorNav li:hover ul {
+        max-height: 200px;
+        /* Increase when adding more dropdown items */
+    }
+
+
+    /*----------------------------
+	Color Themes
+-----------------------------*/
+
+    /*----------------------------
+	The Footer
+-----------------------------*/
+
+
+    footer {
+        background-color: #111111;
+        bottom: 0;
+        box-shadow: 0 -1px 2px #111111;
+        height: 45px;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 100000;
+    }
+
+    footer h2 {
+        color: #EEEEEE;
+        font-size: 14px;
+        font-weight: normal;
+        left: 50%;
+        margin-left: -400px;
+        padding: 13px 0 0;
+        position: absolute;
+        width: 540px;
+    }
+
+    footer h2 i {
+        font-style: normal;
+        color: #888;
+    }
+
+    footer a.tzine, a.tzine:visited {
+        color: #999999;
+        font-size: 12px;
+        left: 50%;
+        margin: 16px 0 0 110px;
+        position: absolute;
+        text-decoration: none;
+        top: 0;
+    }
+
+    footer a i {
+        color: #ccc;
+        font-style: normal;
+    }
+
+    footer a i b {
+        color: #c92020;
+        font-weight: normal;
+    }
+</style>
+
+</html>
