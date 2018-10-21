@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Neighbourhood, User, Business, Profile, Posts
 from datetime import datetime
 
+@login_required(login_url='/accounts/login/')
 def home(request):
     image = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
     images = Posts.objects.filter(neighbourhood=image)
@@ -103,7 +104,8 @@ def updateprofile(request):
     }
 
     return render(request, 'updateprofile.html', context)
-
+    
+@login_required(login_url='/accounts/login/')
 def search_results(request):
     if 'business' in request.GET and request.GET["business"]: 
         search_term = request.GET.get("business")
