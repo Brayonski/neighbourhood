@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid" style="background-color:rgba(252, 252, 252, 0.753); height: 100vh;">
+    <div class="container" style="margin-top: 30px;">
+        <div class="row" style="border-bottom: 1px solid rgb(214, 214, 214); padding-bottom: 10px;">
+            <div class="col-md-2">
+                <img class="img-fluid rounded-circle" src="{{ request.user.profile.profile_pic.url }}" style="border-radius:50%;">
+            </div>
+            <div class="col-md-6">
+                <div id="profile" class="col-md-10" style="text-align:left;">
+                    <h2><strong>{{ user.username }}</strong></h2>
+
+                    <h2><strong>Neighbourhood: {{ request.user.profile.neighbourhood }}</strong></h2>
+                    <h2><strong>Neighbourhood: {{ request.user.profile.Neighbourhood_location }}</strong></h2>
+                    <div class="follow-button">
+                        <a href="{% url 'updateprofile' %}"><button class="btn">EDIT PROFILE</button></a>
+                    </div>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+
+            <div class=" col-md-4 dropdown" style="padding-top:18px;padding-right:18px;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-cog"
+                        style="font-size:18px;"></i>
+                    </span>
+                </a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="/accounts/password/change">Change Password</a>
+                    </li>
+                </ul>
+            </div>
+
+            {% else %}
+            <li>
+                <a class='btn btn-default' href="/accounts/login">Login</a>
+            </li>
+
+            {% endif %}
+            <div class="container">
+                <div class="row bio-profile ">
+                    <p>{{ profile.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 5px;">
+        <div class="row">
+            {% for image in images %}
+            <div class="col-md-4 grid-object">
+                <img class="img-fluid top-space" style="width:85%;height:85%;object-fit:cover;" src="{{ image.image.url }}"
+                    alt="{{ image.image_caption }}" data-toggle="modal" data-target="#{{image.id}}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+<style>
+    #profile .btn {
+        background-color: rgb(241, 241, 241);
+        border: 1px solid rgb(190, 189, 189);
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 10px;
+    }
+</style>
+</div>
+{%endblock%}
