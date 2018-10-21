@@ -32,7 +32,7 @@ class Neighbourhood(models.Model):
         
 
 class Profile(models.Model):
-    user = models.OneToOneField(User,null=True)
+    user = models.OneToOneField(User)
     neighbourhood = models.ForeignKey(Neighbourhood,null=True)
     bio = models.TextField(null=True)
     email = models.CharField(max_length=100)
