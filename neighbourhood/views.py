@@ -17,7 +17,7 @@ def home(request):
     return render(request,'index.html',{"images":images,'date': myDate,"businesses":businesses,"hoods":hoods,"users":users})
 
 @login_required(login_url='/accounts/login/')
-def new_post(request):
+def home(request):
     current_user = request.user
 
     ordering=['-date_posted']
@@ -104,7 +104,7 @@ def updateprofile(request):
 
     return render(request, 'updateprofile.html', context)
 
-def search_results(request):
+def updateprofile(request):
     if 'business' in request.GET and request.GET["business"]: 
         search_term = request.GET.get("business")
         searched_projects = Business.search_by_title(search_term)
