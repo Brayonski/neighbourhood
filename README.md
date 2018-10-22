@@ -40,7 +40,7 @@ This project was created on a debian linux platform but should work on other uni
 
 ### Cloning the repository
 ```bash
-git clone https://github.com/Brayonski/neighbourhood && cd Gallery
+git clone https://github.com/Brayonski/neighbourhood && cd neighbourhood
 ```
 
 ### Creating a virtual environment
