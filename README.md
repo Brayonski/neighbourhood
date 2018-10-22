@@ -23,7 +23,6 @@ Author: [Brian Mutai](https://github.com/Brayonski/neighbourhood)
 
 + [x] set up profile about me & general location & my neighbourhood name
 + [x] Post Businesses.
-+ [x] Post Businesses.
 + [x] Post Upcoming Businesses.
 + [x] Find contact information that will be viscible to everyone in my neighbourhood
 + [x] Change my neighbourhood when I decide to move out

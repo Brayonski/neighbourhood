@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm, NewPostForm, AddCommunityForm,ProfileUpdateForm,UserUpdateForm, CreateBusinessForm
 from django.contrib.auth.models import User
 from .models import Neighbourhood, User, Business, Profile, Posts
-from datetime import datetime
 
 @login_required(login_url='/accounts/login/')
 def home(request):
@@ -14,7 +13,6 @@ def home(request):
     hood = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
     hoods = Neighbourhood.objects.filter(Neighbourhood_name=hood)
     users = User.objects.all()
-    myDate = datetime.now()
     return render(request,'index.html',{"images":images,'date': myDate,"businesses":businesses,"hoods":hoods,"users":users})
 
 @login_required(login_url='/accounts/login/')

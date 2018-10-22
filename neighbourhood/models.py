@@ -1,5 +1,4 @@
 from django.db import models
-import datetime as dt
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -33,7 +32,7 @@ class Neighbourhood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    neighbourhood = models.ForeignKey(Neighbourhood,null=True)
+    neighbourhood = models.ForeignKey(Neighbourhood)
     bio = models.TextField(null=True)
     email = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/')
@@ -58,7 +57,7 @@ class Business(models.Model):
 class Posts(models.Model):
     image = models.ImageField()
     description = models.TextField()
-    neighbourhood = models.ForeignKey(Neighbourhood)
+    neighbourhood = models.ForeignKey(Neighbourhood, default=6)
 
     def __str__(self):
         return self.image
