@@ -33,10 +33,11 @@ class Neighbourhood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    neighbourhood = models.ForeignKey(Neighbourhood)
+    neighbourhood = models.ForeignKey(Neighbourhood,default=1)
     bio = models.TextField(null=True)
     email = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/')
+    community = models.ForeignKey(Neighbourhood,default=2,null=True, related_name='population')
 
     def __str__(self):
         return f'{self.user.username} name' 
@@ -58,7 +59,7 @@ class Business(models.Model):
 class Posts(models.Model):
     image = models.ImageField()
     description = models.TextField()
-    neighbourhood = models.ForeignKey(Neighbourhood, default=6)
+    neighbourhood = models.ForeignKey(Neighbourhood,null=True)
 
     def __str__(self):
         return self.image

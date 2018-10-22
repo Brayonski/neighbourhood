@@ -13,28 +13,29 @@
     <header class="header sticky-top" style="margin-bottom:2vh; ">
         <h1 class="logo"><a href="{%url 'home'%}"">Neighbourhood</a></h1>
         <nav class=" bg-light">
-            <form class="form-inline" role="search" action="{% url 'search_results' %}">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search for Businesses" name="business">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </form>
-        </nav>
-        <ul class=" main-nav">
-                <li><a href="#">Neighbourhood: {{ request.user.profile.neighbourhood  }}</a></li>
-                <li><a href="{% url 'profile' %}">{{ user.username }}</a></li>
-                <li><a href="{% url 'create-business' %}">Create Business</a></li>
-                <nav id="colorNav">
-                    <ul>
-                        <li class="red">
-                            <a href="#" class="">More</a>
-                            <ul>
-                                <li><a href="{% url 'profile' %}">Profile</a></li>
-                                <li><a href="{%url 'add-community'%}">Add community</a></li>
-                                <li><a href=" {%url 'new-post'%}">Post Upcoming Business</a></li>
-                                <li><a href="{%url 'logout'%}">Log out</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <form class="form-inline" role="search" action="{% url 'search_results' %}">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search for Businesses" name="business">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
                 </nav>
+                <ul class=" main-nav">
+                    <li><p></p><span class="badge badge-pill badge-default" style="font-size:2vh;background-color: #FA127F;">{{request.user.profile.community.population.count}}: Members</span></p></li>
+                    <li><a href="#">Neighbourhood: {{ request.user.profile.neighbourhood }}</a></li>
+                    <li><a href="{% url 'profile' %}">{{ user.username }}</a></li>
+                    <li><a href="{% url 'create-business' %}">Create Business</a></li>
+                    <nav id="colorNav">
+                        <ul>
+                            <li class="red">
+                                <a href="#" class="">More</a>
+                                <ul>
+                                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                                    <li><a href="{%url 'add-community'%}">Add community</a></li>
+                                    <li><a href=" {%url 'new-post'%}">Post Upcoming Business</a></li>
+                                    <li><a href="{%url 'logout'%}">Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </ul>
     </header>
 </body>

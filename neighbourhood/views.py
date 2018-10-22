@@ -13,7 +13,7 @@ def home(request):
     hood = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
     hoods = Neighbourhood.objects.filter(Neighbourhood_name=hood)
     users = User.objects.all()
-    return render(request,'index.html',{"images":images,'date': myDate,"businesses":businesses,"hoods":hoods,"users":users})
+    return render(request,'index.html',{"images":images,"businesses":businesses,"hoods":hoods,"users":users})
 
 @login_required(login_url='/accounts/login/')
 def new_post(request):
