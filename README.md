@@ -89,7 +89,13 @@ optional arguments:
 
 ## Technology used
 
-* [Django]
+* HTML
+* CSS
+* Python
+* Django
+* Postgres
+* javascript
+* Heroku
 
 ## Contributing
 

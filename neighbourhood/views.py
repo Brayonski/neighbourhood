@@ -11,9 +11,17 @@ def home(request):
     business = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
     businesses = Business.objects.filter(neighbourhood=business)
     hood = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
-    hoods = Neighbourhood.objects.filter(Neighbourhood_name=hood)
     users = User.objects.all()
     return render(request,'index.html',{"images":images,"businesses":businesses,"hoods":hoods,"users":users})
+
+
+@login_required(login_url='/accounts/login/')
+def hoods(request):
+    current_user = request.user
+    neighbourhoods = Neighbourhood.objects.all()
+    print(neighbourhoods)
+    return render(request,'navbar.html',{"neighbourhoods":neighbourhoods})
+
 
 @login_required(login_url='/accounts/login/')
 def new_post(request):
