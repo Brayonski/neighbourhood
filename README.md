@@ -101,5 +101,6 @@ optional arguments:
 
 This project is licensed under the MIT Open Source license, (c) [Brian Mutai](https://github.com/Brayonski)
 
-##Privacy Policy
-  (https://www.freeprivacypolicy.com/privacy/view/a2b0c40e6955250d1af049af3d1d6b16)
+## Privacy Policy
+
+(https://www.freeprivacypolicy.com/privacy/view/a2b0c40e6955250d1af049af3d1d6b16)
