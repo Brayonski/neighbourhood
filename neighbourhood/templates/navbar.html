@@ -1,7 +1,11 @@
 {% load static %}
 {% load mathfilters %}
+
 <!DOCTYPE html>
 <html>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
 
 <head>
     <meta charset="utf-8" />
@@ -19,7 +23,10 @@
                 </form>
                 </nav>
                 <ul class=" main-nav">
-                    <li><p></p><span class="badge badge-pill badge-default" style="font-size:2vh;background-color: #FA127F;">{{request.user.profile.community.population.count}}: Members</span></p></li>
+                    <li>
+                        <p></p><span class="badge badge-pill badge-default" style="font-size:2vh;background-color: #FA127F;">{{request.user.profile.community.population.count}}:
+                            Members</span></p>
+                    </li>
                     <li><a href="#">Neighbourhood: {{ request.user.profile.neighbourhood }}</a></li>
                     <li><a href="{% url 'profile' %}">{{ user.username }}</a></li>
                     <li><a href="{% url 'create-business' %}">Create Business</a></li>
@@ -106,8 +113,8 @@
     }
 
     /* ================================= 
-    Media Queries
-  ==================================== */
+Media Queries
+==================================== */
 
     @media (min-width: 769px) {
 
@@ -140,7 +147,7 @@
     @import url(https: //netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
     ​​
     /*-------------------------
-	Simple reset
+Simple reset
 --------------------------*/
 
 
@@ -151,7 +158,7 @@
 
 
     /*-------------------------
-	General Styles
+General Styles
 --------------------------*/
 
 
@@ -173,7 +180,7 @@
 
 
     /*----------------------------
-	The Navigation Menu
+The Navigation Menu
 -----------------------------*/
 
 
@@ -257,11 +264,11 @@
 
 
     /*----------------------------
-	Color Themes
+Color Themes
 -----------------------------*/
 
     /*----------------------------
-	The Footer
+The Footer
 -----------------------------*/
 
 

@@ -32,6 +32,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='626695510581-66ird55v9cke4jnj6bhc6uacrrqpnth2.ap
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='D9ws4LUyOm2NHrTSSjqYRDMj'
 SOCIAL_AUTH_GITHUB_KEY ='296b7b4e41801ee38914'
 SOCIAL_AUTH_GITHUB_SECRET ='f0073f3aaef44dd19db471a59314bc8217111bf9'
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -91,9 +93,10 @@ AUTHENTICATION_BACKENDS = (
  'social_core.backends.google.GoogleOAuth2',  # for Google authentication
  'social_core.backends.github.GithubOAuth2',  # for Github authentication
  'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
- 
  'django.contrib.auth.backends.ModelBackend',
 )
+
+
 
 WSGI_APPLICATION = 'hood.wsgi.application'
 

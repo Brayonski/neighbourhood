@@ -4,7 +4,7 @@ Neighbourhood
 - - - -
 Author: [Brian Mutai](https://github.com/Brayonski/neighbourhood)
 ## Description
-[Awwwards](https://mahood.herokuapp.com/) This is a web app that users can post projects,view,rate and search fr detailed description of the project. 
+[Neighbourhood](https://mahood.herokuapp.com/) This is a web app that users can post businesses,post upcoming businesses find contact information that will be viscible to everyone in my neighbourhood,change my neighbourhood when I decide to move out,view details of a single neighbourhood and Search for businesses.
 
 ------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ Author: [Brian Mutai](https://github.com/Brayonski/neighbourhood)
 5. Find contact information that will be viscible to everyone in my neighbourhood
 6. Change my neighbourhood when I decide to move out
 7. View details of a single neighbourhood
-8. SEarch for businesses
+8. Search for businesses
 
 ## Features
 
@@ -101,3 +101,5 @@ optional arguments:
 
 This project is licensed under the MIT Open Source license, (c) [Brian Mutai](https://github.com/Brayonski)
 
+##Privacy Policy
+  (https://www.freeprivacypolicy.com/privacy/view/a2b0c40e6955250d1af049af3d1d6b16)
