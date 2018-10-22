@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from django.contrib.auth import views 
+from django.contrib.auth import views
+from django.contrib.auth import views as auth_views 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,5 +24,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^login/$', views.login, name='login'),
     url(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
+    url('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout' ),
 ]

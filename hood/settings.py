@@ -108,8 +108,8 @@ if config('MODE')=="dev":
           'HOST': config('DB_HOST'),
           'PORT': '',
     }
-
   }
+
 else:
    DATABASES = {
        'default': dj_database_url.config(
@@ -183,8 +183,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'login'
 
 #  Add configuration for static files storage using whitenoise
 
