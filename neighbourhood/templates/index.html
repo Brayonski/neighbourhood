@@ -29,6 +29,7 @@
             <div>
                 <p><span class="badge badge-pill badge-default" style="font-size:2vh;">Description</span>
                     {{posts.description}}</p>
+                <p>Posted {{ posts.posted_time|timesince }} ago.</p>
             </div>
         </div>
         {% endfor %}
