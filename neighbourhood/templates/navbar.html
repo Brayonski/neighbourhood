@@ -16,6 +16,8 @@
 <body>
     <header class="header sticky-top" style="margin-bottom:2vh; ">
         <h1 class="logo"><a href="{%url 'home'%}"">Neighbourhood</a></h1>
+    
+
         <nav class=" bg-light">
                 <form class="form-inline" role="search" action="{% url 'search_results' %}">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search for Businesses" name="business">
@@ -27,7 +29,7 @@
                         <p></p><span class="badge badge-pill badge-default" style="font-size:2vh;background-color: #FA127F;">{{request.user.profile.community.population.count}}:
                             Members</span></p>
                     </li>
-                    <li><a href="#" style="font-size: 2vh">Neighbourhood: {{ request.user.profile.neighbourhood }}</a></li>
+                    <li><a href="#" style="font-size: 2vh">Neighbourhood: {{ request.user.profile.neighbourhood }}</a></li> 
                     <li><a href="{% url 'profile' %}" style="font-size: 2vh">{{ user.username }}</a></li>
                     <li><a href="{% url 'create-business' %}" style="font-size: 2vh">Create Business</a></li>
                     <nav id="colorNav">

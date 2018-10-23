@@ -17,6 +17,8 @@ def save_profile(sender, instance,**kwargs):
 
 class Neighbourhood(models.Model):
     Neighbourhood_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/',null=True)
+    description = models.TextField(null=True)
     Neighbourhood_location = models.CharField(max_length=100)
     health_department = models.CharField(max_length=200,null=True)
     health_department_address = models.CharField(max_length=200,null=True)

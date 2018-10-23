@@ -5,19 +5,38 @@ from django.contrib.auth.models import User
 from .models import Neighbourhood, User, Business, Profile, Posts
 
 @login_required(login_url='/accounts/login/')
-def home(request):
-    try:
+def home(request):        
+    hoods = Neighbourhood.objects.all()
 
+    try:
         image = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
         images = Posts.objects.filter(neighbourhood=image)
         business = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
         businesses = Business.objects.filter(neighbourhood=business)
-        hoods = Neighbourhood.objects.all()
         users = User.objects.all()
     except:
         message ='No posts yet'
     return render(request,'index.html',locals())
 
+def join(request,new_community):
+   # get_usr = get_object_or_404(User,pk=request.user.id)
+   try:
+       new_communit = get_object_or_404(Neighbourhood, pk=new_community)
+
+       request.user.profile.neighbourhood = new_communit
+       request.user.profile.save()
+       print('pppppppppppp')
+       return redirect('home')
+
+   except:
+       return redirect('home')
+
+def left(request):
+   location = get_object_or_404(Neighbourhood, pk=request.user.profile.neighbourhood.id)
+   if request.user.profile.neighbourhood == location:
+       request.user.profile.neighbourhood= None
+       request.user.profile.save()
+   return redirect('home')
 
 @login_required(login_url='/accounts/login/')
 def hoods(request):
