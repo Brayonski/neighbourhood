@@ -56,7 +56,7 @@
                 <a class="view-more"></a>
                 {% for comment in posts.comment_set.all %}
                 <li class="comment-list__comment" style="list-style: none;">
-                    <a href="{% url 'profile' }" class="user">
+                    <a href="{% url 'profile' %}" class="user">
                         <strong>{{ comment.user.user.username }}</strong>
                     </a>
                     <a href="{% url 'profile' %}"><span class="comment">{{ comment.text }}</span></a>
