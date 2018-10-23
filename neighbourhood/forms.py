@@ -1,5 +1,5 @@
 from django import forms
-from .models import Neighbourhood,Business,Posts,Profile
+from .models import Neighbourhood,Business,Posts,Profile,Comment
 from django.forms import ModelForm, Textarea
 from django.contrib.auth.models import User
 
@@ -37,3 +37,8 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image','neighbourhood']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text',)

@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^addcommunity/(?P<user_id>\d+)?$', views.location, name='add-community'), 
     url(r'^createbusiness/(?P<user_id>\d+)?$', views.create_business, name='create-business'),  
     url(r'^search/', views.search_results, name='search_results'),
+    url(r'^comment/(?P<image_id>\d+)?$', views.comment_on, name='comment'),
 ]
 
 if settings.DEBUG:

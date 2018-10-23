@@ -1,18 +1,22 @@
 from django.shortcuts import render,redirect,get_list_or_404,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileForm, NewPostForm, AddCommunityForm,ProfileUpdateForm,UserUpdateForm, CreateBusinessForm
+from .forms import ProfileForm, NewPostForm, AddCommunityForm,ProfileUpdateForm,UserUpdateForm, CreateBusinessForm,CommentForm
 from django.contrib.auth.models import User
 from .models import Neighbourhood, User, Business, Profile, Posts
 
 @login_required(login_url='/accounts/login/')
 def home(request):
-    image = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
-    images = Posts.objects.filter(neighbourhood=image)
-    business = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
-    businesses = Business.objects.filter(neighbourhood=business)
-    hood = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
-    users = User.objects.all()
-    return render(request,'index.html',{"images":images,"businesses":businesses,"hoods":hoods,"users":users})
+    try:
+
+        image = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
+        images = Posts.objects.filter(neighbourhood=image)
+        business = Neighbourhood.objects.get(pk=request.user.profile.neighbourhood.id)
+        businesses = Business.objects.filter(neighbourhood=business)
+        hoods = Neighbourhood.objects.all()
+        users = User.objects.all()
+    except:
+        message ='No posts yet'
+    return render(request,'index.html',locals())
 
 
 @login_required(login_url='/accounts/login/')
@@ -56,6 +60,20 @@ def create_business(request, user_id=None):
     else:
         form = CreateBusinessForm()
     return render(request, 'create_business.html', {"form":form})
+
+#views for commenting
+@login_required(login_url='/accounts/login')
+def comment_on(request, image_id):
+    image = get_object_or_404(Business, pk=image_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user.profile
+            comment.image = image
+            comment.save()
+    return redirect('home')
+
 
 @login_required(login_url='/accounts/login/')
 def location(request, user_id=None):
